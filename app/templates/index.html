@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Writing Buddy MVP</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>Writing Buddy</h1>
+        <p>Generate multiple next-sentence suggestions for English academic writing.</p>
+        <p class="meta">Model: {{ model }} (Ollama local)</p>
+      </header>
+
+      <section class="panel">
+        <label for="contextText">Your current paragraph</label>
+        <textarea
+          id="contextText"
+          placeholder="Paste your English paragraph here..."
+          rows="10"
+        ></textarea>
+        <div class="actions">
+          <button id="generateBtn">Generate (Ctrl/Cmd + Enter)</button>
+          <button id="clearBtn" class="secondary">Clear</button>
+        </div>
+        <p id="status" class="status"></p>
+      </section>
+
+      <section class="panel">
+        <div class="list-head">
+          <h2>Recommended Next Sentences</h2>
+          <button id="regenerateBtn" class="secondary">Regenerate</button>
+        </div>
+        <ol id="resultList"></ol>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

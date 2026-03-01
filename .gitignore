@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Python cache/artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local runtime files
+*.log
+
+# BMAD session outputs
+_bmad-output/
