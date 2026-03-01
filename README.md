@@ -1,6 +1,6 @@
 # Writing Buddy MVP
 
-A minimal paper-writing assistant web app that suggests multiple English next sentences from existing context.
+A minimal paper-writing assistant web app that suggests multiple English/Chinese next sentences from existing context.
 
 ## Stack
 - FastAPI
@@ -54,6 +54,7 @@ Response:
   "sentences": ["..."],
   "meta": {
     "model": "qwen3:8b",
+    "language": "en",
     "requested": 5,
     "returned": 5,
     "filtered": 1,
@@ -61,3 +62,8 @@ Response:
   }
 }
 ```
+
+## Language Support
+- Input language is auto-detected from context text.
+- English input produces English suggestions.
+- Chinese input produces Chinese suggestions.

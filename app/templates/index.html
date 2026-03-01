@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,28 +10,28 @@
     <main class="container">
       <header class="header">
         <h1>Writing Buddy</h1>
-        <p>Generate multiple next-sentence suggestions for English academic writing.</p>
+        <p>Generate multiple next-sentence suggestions for English and Chinese academic writing.</p>
         <p class="meta">Model: {{ model }} (Ollama local)</p>
       </header>
 
       <section class="panel">
-        <label for="contextText">Your current paragraph</label>
+        <label for="contextText">Your current paragraph / 当前段落</label>
         <textarea
           id="contextText"
-          placeholder="Paste your English paragraph here..."
+          placeholder="Paste your English or Chinese paragraph here..."
           rows="10"
         ></textarea>
         <div class="actions">
-          <button id="generateBtn">Generate (Ctrl/Cmd + Enter)</button>
-          <button id="clearBtn" class="secondary">Clear</button>
+          <button id="generateBtn">Generate / 生成 (Ctrl/Cmd + Enter)</button>
+          <button id="clearBtn" class="secondary">Clear / 清空</button>
         </div>
         <p id="status" class="status"></p>
       </section>
 
       <section class="panel">
         <div class="list-head">
-          <h2>Recommended Next Sentences</h2>
-          <button id="regenerateBtn" class="secondary">Regenerate</button>
+          <h2>Recommended Next Sentences / 续写建议</h2>
+          <button id="regenerateBtn" class="secondary">Regenerate / 重新生成</button>
         </div>
         <ol id="resultList"></ol>
       </section>

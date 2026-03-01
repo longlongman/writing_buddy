@@ -54,7 +54,7 @@ function renderResults(sentences) {
     text.textContent = sentence;
     const btn = document.createElement("button");
     btn.className = "secondary";
-    btn.textContent = "Insert";
+    btn.textContent = "Insert / 插入";
     btn.addEventListener("click", () => insertAtCursor(sentence));
     li.appendChild(text);
     li.appendChild(btn);
@@ -65,13 +65,13 @@ function renderResults(sentences) {
 async function generate() {
   const text = contextText.value.trim();
   if (text.length < 30) {
-    setStatus("Please provide at least 30 characters of context.", true);
+    setStatus("Please provide at least 30 characters of context / 请至少提供 30 个字符的上下文。", true);
     return;
   }
 
   generateBtn.disabled = true;
   regenerateBtn.disabled = true;
-  setStatus("Generating suggestions...");
+  setStatus("Generating suggestions... / 正在生成建议...");
   saveContext();
 
   try {
@@ -83,17 +83,17 @@ async function generate() {
 
     const data = await res.json();
     if (!res.ok) {
-      setStatus(data.detail || "Request failed.", true);
+      setStatus(data.detail || "Request failed / 请求失败。", true);
       return;
     }
 
     renderResults(data.sentences);
     localStorage.setItem(LAST_RESULTS_KEY, JSON.stringify(data.sentences));
     setStatus(
-      `Returned ${data.meta.returned} suggestions. Filtered: ${data.meta.filtered}.`
+      `Returned ${data.meta.returned} suggestions (lang: ${data.meta.language}). Filtered: ${data.meta.filtered}.`
     );
   } catch (err) {
-    setStatus("Network error. Check if server is running.", true);
+    setStatus("Network error. Check if server is running / 网络错误，请检查服务是否已启动。", true);
   } finally {
     generateBtn.disabled = false;
     regenerateBtn.disabled = false;
@@ -107,7 +107,7 @@ clearBtn.addEventListener("click", () => {
   resultList.innerHTML = "";
   localStorage.removeItem(CACHE_KEY);
   localStorage.removeItem(LAST_RESULTS_KEY);
-  setStatus("Cleared.");
+  setStatus("Cleared / 已清空。");
 });
 
 contextText.addEventListener("input", saveContext);
